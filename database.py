@@ -53,12 +53,12 @@ def fetch_data(table_name):
     curr.execute(f'select * from {table_name}')
     data=curr.fetchall()
     return data
-products=fetch_data('products')
-print(products)
-sales=fetch_data('sales')
-print(sales)
-stock=fetch_data('stock')
-print(stock)
+# products=fetch_data('products')
+# print(products)
+# sales=fetch_data('sales')
+# print(sales)
+# stock=fetch_data('stock')
+# print(stock)
 # insert
 # product
 def insert_products(values):
@@ -66,10 +66,10 @@ def insert_products(values):
     curr.execute(query,values)
     connect.commit()
 
-new_product=('salt',10,25)
-# insert_products(new_product)
-product=fetch_data('products')
-print(product)
+# new_product=('salt',10,25)
+# # insert_products(new_product)
+# product=fetch_data('products')
+# print(product)
 
 # sales
 def insert_sales(values):
@@ -77,10 +77,10 @@ def insert_sales(values):
     curr.execute(query,values)
     connect.commit()
 
-new_sale=(4,25)
-insert_sales(new_sale)
-my_sale=fetch_data('sales')
-print(my_sale)
+# new_sale=(4,25)
+# insert_sales(new_sale)
+# my_sale=fetch_data('sales')
+# print(my_sale)
 
 # stock
 def insert_stock(values):
@@ -88,23 +88,23 @@ def insert_stock(values):
     curr.execute(query,values)
     connect.commit()
 
-new_stock=(4,30)
-insert_stock(new_sale)
-my_stock=fetch_data('stock')
-print(my_stock)
+# new_stock=(4,30)
+# insert_stock(new_sale)
+# my_stock=fetch_data('stock')
+# print(my_stock)
 # profit per product
 def get_profit():
     query='select p.name,p.product_id,sum((p.selling_price-p.buying_price)*s.quantity) as profit from products as p inner join sales as s on p.product_id=s.product_id group by p.name,p.product_id;'
     curr.execute(query)
     profit=curr.fetchall()
     return profit
-my_profit=get_profit()
-print(my_profit)
+# my_profit=get_profit()
+# print(my_profit)
 # sales per product
 def get_sales():
     query='select p.name,p.product_id,sum(p.selling_price*s.quantity) as profit from products as p join sales as s on p.product_id=s.product_id group by p.name,p.product_id;'
     curr.execute(query)
     getsales=curr.fetchall()
     return getsales
-my_sales=get_sales()
-print(my_sales)
+# my_sales=get_sales()
+# print(my_sales)
