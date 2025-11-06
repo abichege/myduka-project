@@ -5,53 +5,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/style.css">
-    <style>
-        .box4{
-            background-image: url(img.jpg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 700px;
-            width: 100%;
-            margin-top: 0;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="../static/css/index.css">
 </head>
 
 <body>
-    <div class="container-fluid position-fixed">
-        <nav class="navbar navbar-dark bg-black opacity-75">
-            <div class="container-fluid">
-                <a class="navbar-brand text-primary-emphasis" href="#"><strong>MY DUKA</strong></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/products">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/sales">Sales</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/stock">Stock</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg bg-black navbar-dark opacity-75 fixed-top">
+        <div class="container-fluid ">
+            <a href="" class="icon py-0"><i class="fa-solid fa-shop fa-beat-fade fa-2xs" style="color: #555658;"></i></a>
+            <a class="navbar-brand" href="#">My Duka</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item px-4">
+                        <a class="nav-link " href="/dashboard">DashBoard</a>
+                    </li>
+                    <li class="nav-item px-4">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item px-4">
+                        <a class="nav-link" href="/products">Products</a>
+                    </li>
+                    <li class="nav-item px-4">
+                        <a class="nav-link" href="/sales">Sales</a>
+                    </li>
+                    <li class="nav-item px-4">
+                        <a class="nav-link " href="/stock">Stock</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
+    <div class="h1">
+        <h1 class="x">Welcome to My Duka</h1>
     </div>
-    <div class=" box4">
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                <img src="../static/images/img.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-4">
+                <a href=""><i class="fa-solid fa-shop fa-beat-fade fa-2xl" style="color: #003ca3;"></i></i></a>
+                <h1 class="index"><strong>MY <br><span style="margin-left: 40px;">DUKA</span></strong></h1>
+            </div>
+        </div>
     </div>
-
+    <div class="w">
+        <h2>MORE ABOUT OUR SYSTEMS</h2>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7">
+                <img src="../static/images/cr3.jpg" alt="" class="img-fluidd">
+            </div>
+            <div class="col-5">
+                <h3><strong>Reliable point of sale.</strong></h3>
+                <p>Our system ensures successfull transactions of sale</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5">
+                <h3><strong>Quick and Easy shopping.</strong></h3>
+                <p>The system facilitates smooth shopping without complication</p>
+            </div>
+            <div class="col-7">
+                <img src="../static/images/pic.jpg" alt="" class="img-fluidd">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7">
+                <img src="../static/images/img3.jpeg" alt="" class="img-fluidd">
+            </div>
+            <div class="col-5">
+                <h3><strong>Quality Assuarance.</strong></h3>
+                <p>Our products are top-notch high quality!Only the Best for you</p>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>

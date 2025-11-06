@@ -1,0 +1,32 @@
+.img-fluid{
+    height: 400px;
+    image-resolution: initial;
+    width: 80%;
+    margin-left: 100px;
+    border-radius: 10px;
+    /* backface-visibility: hidden; */
+    /* transform: translateZ(0); */
+    align-items: center;
+    margin-top: 100px;
+}
+.box1{
+    height: 80px;
+    width: 20%;
+    background-color: aqua;
+    margin-left: 500px;
+    border-radius: 30px;
+    /* position: fixed; */
+}
+h1{
+    text-align: center;
+    padding-top: 20px;
+}
+button{
+    margin-top: 40px;
+}
+table :hover{
+    color: red;
+}
+/* .box{
+    padding-top: 50px;
+} */

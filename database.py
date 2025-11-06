@@ -102,9 +102,21 @@ def get_profit():
 # print(my_profit)
 # sales per product
 def get_sales():
-    query='select p.name,p.product_id,sum(p.selling_price*s.quantity) as profit from products as p join sales as s on p.product_id=s.product_id group by p.name,p.product_id;'
+    query='select p.name,p.product_id,sum(p.selling_price*s.quantity) as sales from products as p join sales as s on p.product_id=s.product_id group by p.name,p.product_id;'
     curr.execute(query)
     getsales=curr.fetchall()
     return getsales
 # my_sales=get_sales()
 # print(my_sales)
+# profit per day
+def profit_per_day():
+    query='select date(s.created_at), sum((p.selling_price-p.buying_price)*s.quantity) as profit from products as p join sales as s on p.product_id=s.product_id group by date(s.created_at);'
+    curr.execute(query)
+    getprofit=curr.fetchall()
+    return getprofit
+# sales per day
+def sales_per_day():
+    query='select date(s.created_at), sum((p.selling_price)*s.quantity) as sales from products as p join sales as s on p.product_id=s.product_id group by date(s.created_at) order by date(s.created_at);'
+    curr.execute(query)
+    getsales=curr.fetchall()
+    return getsales

@@ -1,0 +1,11 @@
+.img-fluid{
+    height: 400px;
+    image-resolution: initial;
+    width: 80%;
+    margin-left: 100px;
+    border-radius: 10px;
+    /* backface-visibility: hidden; */
+    /* transform: translateZ(0); */
+    align-items: center;
+    margin-top: 100px;
+}
