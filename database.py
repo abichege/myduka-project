@@ -120,3 +120,23 @@ def sales_per_day():
     curr.execute(query)
     getsales=curr.fetchall()
     return getsales
+
+def insert_users(values):
+    query='insert into users (full_name,email,password)values(%s,%s,%s)'
+    curr.execute(query,values)
+    connect.commit()
+
+def check_email(email):
+    query='select * from users where email=%s'
+    curr.execute(query,(email,))
+    data=curr.fetchone()
+    return data
+
+def total_sales():
+    query=' select sum(quantity) as total_sales from sales;'
+    curr.execute(query)
+    totalsales=curr.fetchall()
+    return totalsales
+
+# def total_profit():
+#     query='select p.product_id,sum((p.selling_price-p.buying_price)*s.quantity) as profit from products as p inner join sales as s on p.product_id=s.product_id group by p.product_id;'

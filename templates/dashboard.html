@@ -5,40 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
 </head>
 
 <body>
-    <div class="container-fluid fixed-top">
-        <nav class="navbar navbar-dark bg-black opacity-75">
-            <div class="container-fluid">
-                <a class="navbar-brand text-primary-emphasis" href="#"><strong>MY DUKA</strong></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/dashboard">DashBoard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/products">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/sales">Sales</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/stock">Stock</a>
-                        </li>
-                    </ul>
+    <nav class="navbar navbar-expand-lg bg-black navbar-dark opacity-75 fixed-top">
+        <div class="container-fluid ">
+            <a href="" class="icon py-0"><i class="fa-solid fa-shop fa-beat-fade fa-2xl"
+                    style="color: #555658;"></i></a>
+            <a class="navbar-brand" href="#">My Duka</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <a href="" class="icon py-1"><i class="fa-solid fa-table-columns fa-beat-fade fa-2xl"
+                            style="color: #57595c;"></i></a>
+                    <li class="nav-item px-2">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">DashBoard</a>
+                    </li>
+                    <a href="" class="icon py-1"><i class="fa-solid fa-house fa-beat-fade fa-2xl"
+                            style="color: #545a64;"></i></a>
+                    <li class="nav-item px-2">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <a href="" class="icon py-1"><i class="fa-solid fa-basket-shopping fa-beat-fade fa-2xl"
+                            style="color: #434851;"></i></a>
+                    <li class="nav-item px-2">
+                        <a class="nav-link " href="/products">Products</a>
+                    </li>
+                    <a href="" class="icon py-1"><i class="fa-solid fa-cart-shopping fa-beat-fade fa-2xl"
+                            style="color: #46444b;"></i></a>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="/sales">Sales</a>
+                    </li>
+                    <a href="" class="icon py-1"><i class="fa-solid fa-arrow-trend-up fa-beat-fade fa-2xl"
+                            style="color: #55585e;"></i></a>
+                    <li class="nav-item px-2">
+                        <a class="nav-link " href="/stock">Stock</a>
+                    </li>
+                    <a href=""></a>
+                    <li class="nav-item px-2">
+                        <a class="nav-link " href="/register">REGISTER</a>
+                    </li>
+                    <a href=""></a>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/login"><button class="l">LOGIN</button></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row rcard">
+            <div class="col-3">
+                <div class="card card-body ">
+                    <h5 class="card-title">My Total Sales</h5>
+                    {% for sales in tsales %}
+                    <p class="card-text">{{sales[0]}}</p>
+                    {% endfor %}
                 </div>
             </div>
-        </nav>
+            <div class="col-3">
+                <div class="card card-body">
+                    <h5 class="card-title">My Profit</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container-fluid mt-5 pt-5">
         <div class="row">
@@ -72,81 +123,81 @@
         new Chart(document.getElementById("bar-chart"), {
             type: 'bar',
             data: {
-                labels: {{pnames | safe}},
-                datasets: [
-                    {
-                        label: 'Profits',
-                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                        data: {{pprofits | safe}}
+                labels: {{ pnames | safe}},
+            datasets: [
+            {
+                label: 'Profits',
+                backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850","#F5E027","#5EF527"],
+                data: {{ pprofits | safe}}
                     }
-                ]
+        ]
             },
             options: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: 'Profit Per Product'
-                }
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Profit Per Product'
             }
+        }
         });
         new Chart(document.getElementById("line-chart"), {
             type: 'line',
             data: {
-                labels: {{day | safe}},
-                datasets: [{
-                    data: {{my_profit | safe}},
-                    label: "Profit",
-                    borderColor: "#3e95cd",
-                    fill: false
+                labels: {{ day | safe}},
+            datasets: [{
+                data: {{ my_profit | safe}},
+            label: "Profit",
+            borderColor: "#3e95cd",
+            fill: false
                 }
-                ]
+        ]
             },
             options: {
-                title: {
-                    display: true,
-                    text: 'Profit Per Day'
-                }
+            title: {
+                display: true,
+                text: 'Profit Per Day'
             }
+        }
         });
         // Bar chart
         new Chart(document.getElementById("barchart"), {
             type: 'bar',
             data: {
-                labels: {{sale | safe}},
-                datasets: [
-                    {
-                        label: "Sales",
-                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                        data: {{per_product | safe}}
+                labels: {{ sale | safe}},
+            datasets: [
+            {
+                label: "Sales",
+                backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850","#F5E027","#5EF527"],
+                data: {{ per_product | safe}}
                     }
-                ]
+        ]
             },
             options: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: 'Sales Per Product'
-                }
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Sales Per Product'
             }
+        }
         });
         new Chart(document.getElementById("linechart"), {
             type: 'line',
             data: {
-                labels: {{days | safe}},
-                datasets: [{
-                    data: {{mysales | safe}},
-                    label: "Sales",
-                    borderColor: "#3e95cd",
-                    fill: false
+                labels: {{ days | safe}},
+            datasets: [{
+                data: {{ mysales | safe}},
+            label: "Sales",
+            borderColor: "#3e95cd",
+            fill: false
                 }
-                ]
+        ]
             },
             options: {
-                title: {
-                    display: true,
-                    text: 'Sales Per Day'
-                }
+            title: {
+                display: true,
+                text: 'Sales Per Day'
             }
+        }
         });
     </script>
 </body>

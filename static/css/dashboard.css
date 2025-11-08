@@ -1,0 +1,14 @@
+.l{
+    background-color: rgb(57, 255, 255);
+    width: 80px;
+    border-radius: 4px;
+    border-width: 0;
+ }
+ .card-body{
+    background-color: rgb(90, 107, 180);
+    color: white;
+    padding-left: 40px;
+ }
+ .rcard{
+    padding-top: 80px;
+ }

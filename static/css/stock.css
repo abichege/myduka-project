@@ -21,12 +21,34 @@ h1{
     text-align: center;
     padding-top: 20px;
 }
-button{
+/* button{
     margin-top: 40px;
-}
+} */
 table :hover{
     color: red;
 }
 /* .box{
     padding-top: 50px;
 } */
+ .bg{
+    background-image: url('../static/images/stock.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 700px;
+    width: 100%;
+    margin-top: 0;
+ }
+ .navbar-brand{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+.icon{
+    text-decoration: none;
+}
+.l{
+    background-color: rgb(57, 255, 255);
+    width: 80px;
+    border-radius: 4px;
+    border-width: 0;
+ }

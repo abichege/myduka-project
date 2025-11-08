@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,redirect,url_for
-from database import fetch_data, insert_products,insert_sales,insert_stock,get_profit,get_sales,profit_per_day,sales_per_day
+from database import fetch_data, insert_products,insert_sales,insert_stock,get_profit,get_sales,profit_per_day,sales_per_day,insert_users,check_email,total_sales
 app=Flask(__name__)
 
 @app.route('/')
@@ -98,15 +98,57 @@ def dashboard():
     for i in sales_day:
         days.append(str(i[0]))
         mysales.append(float(i[1]))
-    return render_template('dashboard.html', pnames=product_names,pprofits=product_profits,sale=sales_name,per_product=per_product,my_profit=my_profit,day=day,days=days, mysales=mysales)
+
+    tsales=total_sales()
+    print(tsales)
+    # total_profit=get_profit()
+    # profit_list=[]
+    # total_profit=int(total_profit)
+    # for i in total_profit:
+        # add+=i[2]
+        # add.append(str(i[2]))
+        # return profit_list
+    # print(profit_list)
+    # totals=[]
+    # for i in tsales:
+    #     totals.append(str(i[0]))
+    return render_template('dashboard.html', pnames=product_names,pprofits=product_profits,sale=sales_name,per_product=per_product,my_profit=my_profit,day=day,days=days, mysales=mysales,tsales=tsales)
 
 
-@app.route('/register')
+@app.route('/register',methods=['GET','POST'])
 def register():
+    if request.method=='POST':
+        fname=request.form['fname']
+        email=request.form['email']
+        password=request.form['password']
+
+        new_user=(fname,email,password)
+        check=check_email(email)
+        if check==None:
+            insert_users(new_user)
+            print('Register Successful Login')
+            return redirect(url_for('login'))
+        else:
+            print('User Exists use a different email ')
+            return render_template('register.html')
     return render_template('register.html')
 
-@app.route('/login')
+@app.route('/login' ,methods=['GET','POST'])
 def login():
+    if request.method=='POST':
+        email=request.form['email']
+        password=request.form['password']
+        check=check_email(email)
+        if check==None:
+            print('user does not exist register')
+            return redirect(url_for('register'))
+        else:
+            if password==check[3]:
+                print('login')
+                return redirect(url_for('dashboard'))
+            else:
+                print('Wrong Password or email')
+                return render_template('login.html')
     return render_template('login.html')
 
 

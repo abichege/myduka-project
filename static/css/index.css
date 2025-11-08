@@ -89,6 +89,7 @@ a{
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: underline;
+    margin-top: 25px;
     
 }
 .navbar-brand{
@@ -99,3 +100,12 @@ a{
 .icon{
     text-decoration: none;
 }
+/* .nav-link :hover{
+    color: rgb(83, 83, 255);
+} */
+ .l{
+    background-color: rgb(57, 255, 255);
+    width: 80px;
+    border-radius: 4px;
+    border-width: 0;
+ }
