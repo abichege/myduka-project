@@ -1,0 +1,131 @@
+{% extends "base.html"%}
+{% block head %}
+<link rel="stylesheet" href="../static/css/index.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin-top: 100px;
+    }
+
+    canvas {
+        display: block;
+        margin: 0 auto;
+        /* center horizontally */
+        max-width: 100%;
+        height: auto;
+        color: #2023df;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        /* responsive scaling */
+        display: block;
+    }
+
+    h2,
+    h3 {
+        word-wrap: break-word;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Canvas -->
+    <div class="text-center mb-4">
+        <canvas id="myCanvas" width="600" height="200"></canvas>
+    </div>
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide mb-5">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../static/images/img.jpg" class="d-block w-100 img-fluid" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="../static/images/home3.jpg" class="d-block w-100 img-fluid" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="../static/images/home2.jpg" class="d-block w-100 img-fluid" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="../static/images/home1.jpg" class="d-block w-100 img-fluid" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Section: More About -->
+    <div class="w text-center mb-4">
+        <h2>MORE ABOUT OUR SYSTEMS</h2>
+    </div>
+
+    <!-- Responsive rows -->
+    <div class="container-fluid mb-4">
+        <div class="row align-items-center">
+            <div class="col-md-7 mb-3 mb-md-0">
+                <img src="../static/images/home4.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-5">
+                <h3><strong>Reliable point of sale.</strong></h3>
+                <p>Our system ensures successful transactions of sale</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mb-4">
+        <div class="row align-items-center">
+            <div class="col-md-5 mb-3 mb-md-0">
+                <h3><strong>Quick and Easy shopping.</strong></h3>
+                <p>The system facilitates smooth shopping without complication</p>
+            </div>
+            <div class="col-md-7">
+                <img src="../static/images/pic.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mb-4">
+        <div class="row align-items-center">
+            <div class="col-md-7 mb-3 mb-md-0">
+                <img src="../static/images/img3.jpeg" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-5">
+                <h3><strong>Quality Assurance.</strong></h3>
+                <p>Our products are top-notch high quality! Only the Best for you</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    ctx.font = '48px Pacifico, cursive';
+    ctx.fillStyle = '#333';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('Welcome to My Duka!!', canvas.width / 2, canvas.height / 2);
+</script>
+{% endblock %}

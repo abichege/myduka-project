@@ -122,7 +122,7 @@ def sales_per_day():
     return getsales
 
 def insert_users(values):
-    query='insert into users (full_name,email,password)values(%s,%s,%s)'
+    query='insert into users (first_name,last_name,email,password)values(%s,%s,%s,%s)'
     curr.execute(query,values)
     connect.commit()
 
@@ -133,10 +133,32 @@ def check_email(email):
     return data
 
 def total_sales():
-    query=' select sum(quantity) as total_sales from sales;'
+    query='select sum(p.selling_price*s.quantity) as Sales from products as p join sales as s on p.product_id=s.product_id;'
     curr.execute(query)
-    totalsales=curr.fetchall()
-    return totalsales
+    totalsales=curr.fetchone()
+    return totalsales[0]
+print(total_sales())
+def total_profit():
+    query='select sum((p.selling_price-p.buying_price)*s.quantity) as profit from products as p inner join sales as s on p.product_id=s.product_id;'
+    curr.execute(query)
+    totalprofit=curr.fetchone()
+    return totalprofit[0]
+def update_product(w,x,y,z):
+    query='update products set name=%s,buying_price=%s,selling_price=%s where product_id=%s;'
+    curr.execute(query,(w,x,y,z))
+    connect.commit()
 
-# def total_profit():
-#     query='select p.product_id,sum((p.selling_price-p.buying_price)*s.quantity) as profit from products as p inner join sales as s on p.product_id=s.product_id group by p.product_id;'
+def update_sale(y,z):
+    query='update sales set quantity=%s where sales_id=%s;'
+    curr.execute(query,(y,z))
+    connect.commit()
+
+def update_stock(y,z):
+    query='update stock set stock_quantity=%s where stock_id=%s;'
+    curr.execute(query,(y,z))
+    connect.commit()
+
+def delete_product(x):
+    query='delete from products where products_id=%s'
+    curr.execute(query(x))
+    connect.commit()

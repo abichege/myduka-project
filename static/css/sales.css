@@ -1,25 +1,130 @@
-.img-fluid{
-    height: 400px;
-    image-resolution: initial;
-    width: 80%;
-    margin-left: 100px;
-    border-radius: 10px;
-    /* backface-visibility: hidden; */
-    /* transform: translateZ(0); */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f8ff;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(to right, #003366, #1e90ff);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 100px;
+    flex-wrap: wrap;
 }
-.navbar-brand{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
+
+.header h1 {
+    font-size: 24px;
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.search-bar {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    width: 220px;
+}
+
+.add-btn {
+    background: white;
+    color: #1e90ff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
     font-weight: bold;
+    transition: 0.3s;
 }
-.icon{
-    text-decoration: none;
+
+.add-btn:hover {
+    background: #e6f0ff;
 }
-.l{
-    background-color: rgb(57, 255, 255);
-    width: 80px;
-    border-radius: 4px;
-    border-width: 0;
- }
+
+/* Table Container */
+.table-container {
+    padding: 30px;
+    overflow-x: auto;
+}
+
+/* Table */
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.products-table thead {
+    background: #1e90ff;
+    color: white;
+}
+
+.products-table th,
+.products-table td {
+    padding: 15px;
+    text-align: left;
+}
+
+.products-table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: 0.2s;
+}
+
+.products-table tbody tr:hover {
+    background: #f0f6ff;
+}
+
+/* Action Buttons */
+.action-btn {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-btn {
+    background: #1e90ff;
+    color: white;
+}
+
+.delete-btn {
+    background: #ff4d4d;
+    color: white;
+}
+
+/* Mobile */
+@media(max-width:600px) {
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+}
+.dataTables_filter{
+    display: none !important;
+}

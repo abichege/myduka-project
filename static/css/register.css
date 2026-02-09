@@ -1,14 +1,62 @@
-.navbar-brand{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: bold;
+
+
+
+.l {
+   background-color: rgb(57, 255, 255);
+   width: 80px;
+   border-radius: 4px;
+   border-width: 0;
 }
-.icon{
-    text-decoration: none;
+
+/* .f{
+    border-radius: 5px;
+    background-color: gainsboro;
+    height: 300px;
+    margin-left: 500px;
+    margin-top: 100px;
+    box-shadow: 10px;
+ } */
+form {
+   padding: 20px;
+   border-radius: 10px;
+   background-color: gainsboro;
+   height: 340px;
+   margin-left: 500px;
+   margin-top: 40px;
+   box-shadow: 10px;
+   width: 50%; 
 }
-.l{
-    background-color: rgb(57, 255, 255);
-    width: 80px;
-    border-radius: 4px;
-    border-width: 0;
- }
+
+.b {
+   margin-left: 200px;
+   background-color: rgb(162, 245, 245);
+   border-radius: 8px;
+
+}
+
+.r {
+   width: 90%;
+   border-radius: 4px;
+}
+
+body {
+   background-image: url('../images/register.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   /* height: 700px; */
+   width: 50%;
+   margin-top: 0;
+}
+
+.link {
+   text-decoration: none;
+}
+
+canvas {
+   margin-left: 400px;
+   margin-top: 140px;
+}
+
+/* .register ::before{
+
+ } */

@@ -1,82 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+{% extends "base.html" %}
+{% block head %}
     <link rel="stylesheet" href="../static/css/register.css">
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg bg-black navbar-dark opacity-75 fixed-top">
-        <div class="container-fluid ">
-            <a href="" class="icon py-0"><i class="fa-solid fa-shop fa-beat-fade fa-2xl"
-                    style="color: #555658;"></i></a>
-            <a class="navbar-brand" href="#">My Duka</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <a href="" class="icon py-0"><i class="fa-solid fa-table-columns fa-beat-fade fa-2xl"
-                            style="color: #57595c;"></i></a>
-                    <li class="nav-item px-2">
-                        <a class="nav-link " href="/dashboard">DashBoard</a>
-                    </li>
-                    <a href="" class="icon py-0"><i class="fa-solid fa-house fa-beat-fade fa-2xl"
-                            style="color: #545a64;"></i></a>
-                    <li class="nav-item px-2">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <a href="" class="icon py-0"><i class="fa-solid fa-basket-shopping fa-beat-fade fa-2xl"
-                            style="color: #4b5462;"></i></a>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="/products">Products</a>
-                    </li>
-                    <a href="" class="icon py-0"><i class="fa-solid fa-cart-shopping fa-beat-fade fa-2xl"
-                            style="color: #46444b;"></i></a>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="/sales">Sales</a>
-                    </li>
-                    <a href="" class="icon py-0"><i class="fa-solid fa-arrow-trend-up fa-beat-fade fa-2xl"
-                            style="color: #55585e;"></i></a>
-                    <li class="nav-item px-2">
-                        <a class="nav-link " href="/stock">Stock</a>
-                    </li>
-                    <a href=""></a>
-                    <li class="nav-item px-2">
-                        <a class="nav-link active" aria-current="page" href="/register">REGISTER</a>
-                    </li>
-                    <a href=""></a>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="/login"><button class="l">LOGIN</button></a>
-                    </li>
-                </ul>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <canvas id="myCanvas" width="600" height="100"></canvas>
             </div>
         </div>
-    </nav>
-    <h1>register page</h1>
-    <form action="/register" method="post">
-        <label for="fname">full name</label>
-        <input type="text" name="fname" id="fname"><br>
-        <label for="email">Email</label><br>
-        <input type="email" id="email" name="email"><br>
-        <label for="password">password</label><br>
-        <input type="password" name="password">
-        <input type="submit" value="Register">
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-        crossorigin="anonymous"></script>
-</body>
+        <div class="row">
+            <div class="col-12">
+                <!-- <div class="register"> -->
+                    <form action="/register" method="post">
+                        <label for="fname"><strong>First Name:</strong></label><br>
+                        <input type="text" name="fname" id="fname" required class="r"><br>
+                        <label for="fname"><strong>Last Name:</strong></label><br>
+                        <input type="text" name="lname" id="lname" required class="r"><br>
+                        <label for="email"><strong>Email:</strong></label><br>
+                        <input type="email" id="email" name="email" required class="r"><br>
+                        <label for="password"><strong>Password:</strong></label><br>
+                        <input type="password" name="password" required class="r"><br><br>
+                        <input type="submit" value="Register" class="b"><br><br>
+                        <h6>Have an account already?<a href="/login" class="link">Log in</a></h6>
+                    </form>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
 
-</html>
+        // Set the font style using the stylish font family
+        ctx.font = '48px Pacifico, cursive';
+        ctx.fillStyle = '#000';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        // Draw the text on the canvas
+        ctx.fillText('Join My Duka Today', canvas.width / 2, canvas.height / 2);
+    </script>
+{% endblock %}
